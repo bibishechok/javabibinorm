@@ -25,12 +25,12 @@ public class Main {
                 case 1:    //add new user
                     User.addUser();
                     User.seeUser(sold);
-                break;
+                    break;
 
                 case 2:     //add new product
                     Product.addProduct();
                     Product.seeProduct();
-                break;
+                    break;
 
                 case 3:    //show all users
                     User.print();
@@ -53,8 +53,8 @@ public class Main {
                     userId=s.nextInt();
                     System.out.println("Enter product id: ");
                     productId=s.nextInt();
-                    User.refund(userId, Product.find(productId,0), productId, sold);
-                    Product.refund(productId);
+                    User.refund(userId, Product.find(productId,0), productId, User.buy(userId, Product.find(productId,0) , productId,  sold), Product.findName(productId));
+                    Product.refund(userId, Product.find(productId,0), productId,User.buy(userId, Product.find(productId,0) , productId,  sold), Product.findName(productId));
                     break;
                 case 7:
                     return;
@@ -65,6 +65,5 @@ public class Main {
             heading();
         }
 
-        }
     }
-
+}
