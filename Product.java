@@ -82,9 +82,9 @@ public class Product {
         if(temp==null) {
             System.out.println("This product has not been found ");
         }else{
-        while (temp.id != productId) {
-            temp = temp.next;
-        }
+            while (temp.id != productId) {
+                temp = temp.next;
+            }
             if (temp.id == productId) {
                 if (temp.bought > 1) {
                     return temp.name;
@@ -94,7 +94,7 @@ public class Product {
         }
         return null;
     }
-    public static int refund(int productId){
+    public static int refund(int userId, int productPrice, int productId, String sold, String productName){
         Link temp = top;
         if(temp==null){
             return productId;
@@ -105,7 +105,7 @@ public class Product {
         }
         if(temp.id==productId&&User.refund(userId, productPrice, productId, sold, productName)!=null)
         {
-                temp.bought+= 1;
+            temp.bought+= 1;
         }
         return temp.bought;
     }
@@ -118,5 +118,21 @@ public class Product {
             System.out.println("Id: "+temp.id+" Product: "+temp.name+" Price: "+temp.money+" In stock: "+temp.bought);
             temp = temp.next;
         }
+    }
+    public static String findName(int productId){
+        Link temp = top;
+        String productName=null;
+        System.out.println(top);
+        if (temp == null) {
+            System.out.println("No product found");
+        }else {
+            while (temp.id != productId) {
+                temp = temp.next;
+            }
+            if (temp.id == productId) {
+                productName = temp.name;
+            }
+        }
+        return productName;
     }
 }
