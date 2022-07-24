@@ -103,7 +103,7 @@ public class Product {
         {
             temp = temp.next;
         }
-        if(temp.id==productId)
+        if(temp.id==productId&&User.refund(userId, productPrice, productId, sold, productName)!=null)
         {
                 temp.bought+= 1;
         }
